@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>タスク作成</title>
+</head>
+<body>
+    <h1>タスク作成</h1>
+    <form th:action="@{/tasks}" th:object="${task}" method="post">
+        <div>
+            <label>タイトル</label>
+            <input type="text" th:field="*{title}">
+        </div>
+        <div>
+            <label>説明</label>
+            <input type="text" th:field="*{description}">
+        </div>
+        <div>
+            <label>ステータス</label>
+            <select th:field="*{status}">
+                <option value="未着手">未着手</option>
+                <option value="進行中">進行中</option>
+                <option value="完了">完了</option>
+            </select>
+        </div>
+        <div>
+            <label>締切日</label>
+            <input type="date" th:field="*{dueDate}">
+        </div>
+        <button type="submit">保存</button>
+    </form>
+    <a href="/tasks">戻る</a>
+</body>
+</html>
